@@ -1,0 +1,25 @@
+nav ul {
+    display:flex;
+    margin:20px 0; 
+}
+
+nav li {
+    width:25%;
+    margin-right:20px; 
+}
+
+input.text, button{
+    border: none;
+    border-radius: 5px;
+    padding: 1%;
+}
+
+input.text {
+    margin-bottom: 2%;
+    background-color: rgba(211, 211, 211, 0.508);
+}
+
+button{
+    background-color: lightgray;
+    min-width: 150px;
+}
