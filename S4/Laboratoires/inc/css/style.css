@@ -1,3 +1,7 @@
+.hide{
+    display: none;
+}
+
 nav ul {
     display:flex;
     margin:20px 0; 
@@ -8,18 +12,33 @@ nav li {
     margin-right:20px; 
 }
 
-input.text, button{
+.field, button{
     border: none;
     border-radius: 5px;
     padding: 1%;
 }
 
-input.text {
+.field {
     margin-bottom: 2%;
     background-color: rgba(211, 211, 211, 0.508);
+}
+
+.flexform {
+    display: flex;
+    flex-direction:column;
+    input, select, button{
+        min-height: 30px;
+        max-height: 1%;
+        min-width: 200px;
+        max-width: 20%;
+    }
 }
 
 button{
     background-color: lightgray;
     min-width: 150px;
+}
+
+input.modifBtn {
+    height: 2.5%;
 }

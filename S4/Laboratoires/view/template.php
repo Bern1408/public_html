@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
-        <link href="./inc/css/style.css" rel="stylesheet" /> 
+        <link href="./inc/css/style.css" rel="stylesheet" />
+        <script src="js/java.js" defer></script>
     </head>
         
     <body>

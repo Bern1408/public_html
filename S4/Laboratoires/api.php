@@ -122,6 +122,7 @@
 
                 break;
             case 'testajax': 
+                $_REQUEST['objet'] = json_decode(file_get_contents('php://input'), true);
                 print_r($_REQUEST);
                 break;
 
