@@ -55,9 +55,12 @@ class ProduitManager extends Manager
         $db = $this->db_connect();
         $req = $db->prepare("INSERT INTO tbl_produit (id_categorie, produit, description) 
             VALUES (:cat, :nom, :descrip)");
-        $req->bindParam(':cat', $produit['id_categorie']);
-        $req->bindParam(':nom', $produit['produit']);
-        $req->bindParam(':descrip', $produit['description']);
+        $cat = $produit->get_id_categorie();
+        $nom = $produit->get_produit();
+        $des = $produit->get_description();
+        $req->bindParam(':cat', $cat);
+        $req->bindParam(':nom', $nom);
+        $req->bindParam(':descrip', $des);
         $req->execute();
     }
 

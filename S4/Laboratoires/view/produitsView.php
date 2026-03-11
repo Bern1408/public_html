@@ -29,19 +29,20 @@ $categories = $catM->getCategories();
         <legend>Gestion d'un produit</legend>
 
         <label for="produit">Produit :</label>
-        <input type="text" name="produit" class="field">
+        <input type="text" name="produit" class="field" required>
 
-        <label for="categorie">Catégorie :</label>
-        <select name="categorie" class="field">
+        <label for="id_categorie">Catégorie :</label>
+        <select name="id_categorie" class="field">
             <?php foreach($categories as $c) { ?>
                 <option value="<?= $c->get_id_categorie() ?>"><?= $c->get_categorie() ?></option>
             <?php } ?>
         </select>
 
         <label for="description">Description :</label>
-        <input type="text" name="description" class="field">
+        <input type="text" name="description" class="field" required>
  
         <button type="submit">Envoyer</button>
+        <input type="hidden" name="action" value="ajouterProduit">
     </fieldset>
 </form>
 

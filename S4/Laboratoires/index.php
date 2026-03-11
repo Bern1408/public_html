@@ -46,7 +46,15 @@ if (isset($_REQUEST['action'])) {
         require('controller/controllerCategorie.php');
         listCategories();
     }
-    
+    elseif ($_REQUEST['action'] == 'ajouterProduit') {
+        require('controller/controllerProduit.php');    
+        if (isset($_REQUEST['produit']) && isset($_REQUEST['id_categorie']) && isset($_REQUEST['description'])){
+            require_once('model/Produit.php');
+            $p = new Produit(array('produit' => $_REQUEST['produit'], 'id_categorie' => $_REQUEST['id_categorie'], 'description' => $_REQUEST['description']));
+            addProduit($p);
+        }
+        listProduits();
+    }
     elseif ($_REQUEST['action'] == 'produitscategorie') {
         if (isset($_REQUEST['id']) && $_REQUEST['id'] > 0) {
             require('controller/controllerProduit.php');
