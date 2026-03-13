@@ -26,6 +26,7 @@
                         break;
                     
                     case 'POST':// Cas pour insérer en BD un nouveau produit
+                        print_r("POST===========");
                         $infosNouveauProduit = json_decode(file_get_contents('php://input'), true);
                         if (!isset($infosNouveauProduit['produit'])){
                             http_response_code(400);
@@ -98,21 +99,22 @@
                         break;
                 
                     case 'DELETE':// Cas pour supprimer en BD un produit spécifique
-                        if (isset($_REQUEST['id'])){
-                            if (produit($_REQUEST['id'], true) == null){
+                        $infosProduitExistant = json_decode(file_get_contents('php://input'), true);
+                        //if (isset($_REQUEST['id'])){
+                            if (produit($infosProduitExistant['id'], true) == null){
                                 http_response_code(400);
                                 echo '{"ÉCHEC" : "La suppression du produit a échoué. L\'ID du produit est erroné."}';
                             }
                             else{
-                                deleteProduit($_REQUEST["id"]);
+                                deleteProduit($infosProduitExistant["id"]);
                                 http_response_code(200);
                                 echo '{"SUCCÈS" : "La suppression du produit a fonctionné."}';
                             }
-                        }
-                        else{
-                            http_response_code(400);
-                            echo '{"ÉCHEC" : "La suppression du produit a échoué. L\'ID du produit n\'a pas été reçu."}';
-                        }
+                        //}
+                        //else{
+                        //    http_response_code(400);
+                        //    echo '{"ÉCHEC" : "La suppression du produit a échoué. L\'ID du produit n\'a pas été reçu."}';
+                        //}
                         break;
                     
                     default:

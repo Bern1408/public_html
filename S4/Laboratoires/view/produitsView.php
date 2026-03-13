@@ -16,33 +16,35 @@ $categories = $catM->getCategories();
 <?php foreach($produits as $produit) { ?>
     <div>
         <h3>Produit: <?= htmlspecialchars($produit->get_produit()) ?> 
-            <input class="modifBtn" type="image" src="./inc/img/edit-icon.png" alt="Modifier un produit" value="<?= htmlspecialchars($produit->get_id_produit()) ?>">
-            <input class="modifBtn" type="image" src="./inc/img/delete-icon.png" alt="Supprimer un produit" value="<?= htmlspecialchars($produit->get_id_produit()) ?>">
+            <input class="modifBtn edit" type="image" src="./inc/img/edit-icon.png" alt="Modifier un produit" value="<?= htmlspecialchars($produit->get_id_produit()) ?>">
+            <input class="modifBtn remove" type="image" src="./inc/img/delete-icon.png" alt="Supprimer un produit" value="<?= htmlspecialchars($produit->get_id_produit()) ?>">
         </h3>
         <p>Description: <?= htmlspecialchars($produit->get_description()) ?> </p>        
         <hr>
     </div>
 <?php } ?>
 
-<form action="" class="hide" id="addForm">
+<form action="" class="hide" id="addForm" methode="POST">
     <fieldset class="flexform">
         <legend>Gestion d'un produit</legend>
 
         <label for="produit">Produit :</label>
-        <input type="text" name="produit" class="field" required>
+        <input type="text" name="produit" class="field" required id="produit">
 
         <label for="id_categorie">Catégorie :</label>
-        <select name="id_categorie" class="field">
+        <select name="id_categorie" class="field" id="id_categorie">
             <?php foreach($categories as $c) { ?>
                 <option value="<?= $c->get_id_categorie() ?>"><?= $c->get_categorie() ?></option>
             <?php } ?>
         </select>
 
         <label for="description">Description :</label>
-        <input type="text" name="description" class="field" required>
+        <input type="text" name="description" class="field" required id="description">
  
-        <button type="submit">Envoyer</button>
+        <button type="submit" id="submit">Envoyer</button>
+        <!--
         <input type="hidden" name="action" value="ajouterProduit">
+        !-->
     </fieldset>
 </form>
 
